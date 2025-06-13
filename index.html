@@ -3,6 +3,7 @@
 <head>
     <title>Install Atharv App</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script>
         function startProcess() {
             // Try to initiate download
@@ -41,7 +42,7 @@
         function showInstallInstructions() {
             document.getElementById('download-status').innerHTML = `
                 <div class="download-complete">
-                    <div class="success-icon">✓</div>
+                    <div class="success-icon"><i class="fas fa-check"></i></div>
                     <p class="status-text">Download complete!</p>
                 </div>
             `;
@@ -78,14 +79,14 @@
             width: 60px;
             height: 60px;
             border-radius: 15px;
-            background-color: var(--play-store-blue);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            font-weight: bold;
+            overflow: hidden;
             margin-right: 15px;
+        }
+        
+        .app-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         
         .app-info h1 {
@@ -204,14 +205,26 @@
             gap: 10px;
             margin: 20px 0;
             padding-bottom: 10px;
+            scrollbar-width: none; /* Firefox */
+        }
+        
+        .screenshots::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Opera */
         }
         
         .screenshot {
-            width: 150px;
-            height: 250px;
-            background-color: #e0e0e0;
+            width: 200px;
+            height: 355px;
             border-radius: 8px;
             flex-shrink: 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .screenshot img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         
         .permissions {
@@ -232,6 +245,9 @@
         .permission-icon {
             margin-right: 15px;
             color: #5f6368;
+            font-size: 20px;
+            width: 24px;
+            text-align: center;
         }
         
         .download-complete {
@@ -246,11 +262,31 @@
         #open-button {
             display: none;
         }
+        
+        .app-description {
+            margin: 20px 0;
+            font-size: 14px;
+            line-height: 1.5;
+            color: var(--play-store-dark-gray);
+        }
+        
+        .info-label {
+            font-size: 12px;
+            color: #5f6368;
+            margin-bottom: 5px;
+        }
+        
+        .info-value {
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
     </style>
 </head>
 <body>
     <div class="app-header">
-        <div class="app-icon">A</div>
+        <div class="app-icon">
+            <img src="https://via.placeholder.com/60x60/1a73e8/ffffff?text=A" alt="Atharv App Icon">
+        </div>
         <div class="app-info">
             <h1>Atharv App</h1>
             <p>Developer: Atharv Team</p>
@@ -273,26 +309,53 @@
     
     <button id="open-button" class="btn">Open App</button>
     
+    <div class="app-description">
+        Atharv App is your all-in-one solution for productivity and entertainment. With features designed to make your life easier, it's the perfect companion for your daily tasks.
+    </div>
+    
     <div class="permissions">
         <h3>This app requires access to:</h3>
         <div class="permission-item">
-            <div class="permission-icon">📷</div>
+            <div class="permission-icon"><i class="fas fa-camera"></i></div>
             <div>Camera (for scanning features)</div>
         </div>
         <div class="permission-item">
-            <div class="permission-icon">🗂️</div>
+            <div class="permission-icon"><i class="fas fa-sd-card"></i></div>
             <div>Storage (to save files)</div>
         </div>
         <div class="permission-item">
-            <div class="permission-icon">📍</div>
+            <div class="permission-icon"><i class="fas fa-map-marker-alt"></i></div>
             <div>Location (for nearby services)</div>
+        </div>
+        <div class="permission-item">
+            <div class="permission-icon"><i class="fas fa-microphone"></i></div>
+            <div>Microphone (for voice commands)</div>
         </div>
     </div>
     
+    <div class="info-label">Version</div>
+    <div class="info-value">2.3.4</div>
+    
+    <div class="info-label">Updated</div>
+    <div class="info-value">June 15, 2023</div>
+    
+    <div class="info-label">Size</div>
+    <div class="info-value">15 MB</div>
+    
+    <h3>Screenshots</h3>
     <div class="screenshots">
-        <div class="screenshot"></div>
-        <div class="screenshot"></div>
-        <div class="screenshot"></div>
+        <div class="screenshot">
+            <img src="https://via.placeholder.com/200x355/4285f4/ffffff?text=Screenshot+1" alt="App Screenshot 1">
+        </div>
+        <div class="screenshot">
+            <img src="https://via.placeholder.com/200x355/34a853/ffffff?text=Screenshot+2" alt="App Screenshot 2">
+        </div>
+        <div class="screenshot">
+            <img src="https://via.placeholder.com/200x355/ea4335/ffffff?text=Screenshot+3" alt="App Screenshot 3">
+        </div>
+        <div class="screenshot">
+            <img src="https://via.placeholder.com/200x355/fbbc04/ffffff?text=Screenshot+4" alt="App Screenshot 4">
+        </div>
     </div>
 </body>
 </html>
